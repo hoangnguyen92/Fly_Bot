@@ -4,7 +4,12 @@
  */
 var res = {
     bg_jpg : "res/bg.jpg",
-    playBtn_png : "res/playBtn.png"
+    playBtn_png : "res/playBtn.png",
+    runner_png: "res/runner.png",
+    runner_plist: "res/runner.plist",
+    map_png: "res/map.png",
+    map00_tmx: "res/map00.tmx",
+    map01_tmx: "res/map01.tmx"
 };
 
 /**
@@ -21,5 +26,11 @@ var g_mainmenu = [
  * @type {Array}
  */
 var g_gamemenu = [
+    res.bg_jpg,
+    res.runner_png,
+    res.runner_plist,
+    res.map_png,
+    res.map00_tmx,
+    res.map01_tmx
 
 ];
