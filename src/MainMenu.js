@@ -9,7 +9,7 @@ var MainMenuLayer = cc.Layer.extend({
     },
     init: function() {
         var layer = this;
-        winSize = cc.director.getWinSize();
+        var winSize = cc.director.getWinSize();
 
         var centerPos = cc.p(winSize.width/2 , winSize.height/2);
         var background = new cc.Sprite(res.bg_jpg);

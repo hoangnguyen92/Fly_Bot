@@ -12,6 +12,7 @@ var GameScene = cc.Scene.extend({
     },
     // init space of chipmunk
     initPhysics:function() {
+    	var winSize = cc.director.getWinSize();
         //1. new space object
         this.space = new cp.Space();
         //2. setup the  Gravity
@@ -22,6 +23,10 @@ var GameScene = cc.Scene.extend({
             cp.v(0, g_groundH),// start point
             cp.v(4294967295, g_groundH),// MAX INT:4294967295
             0);// thickness of wall
+        
+//        var wallUp = new cp.SegmentShape(this.space.staticBody,cp.v(0, winSize-50),cp.v(4294967295,winSize-50 ),1);
+
+//        this.space.addStaticShape(wallUp);
         this.space.addStaticShape(wallBottom);
     },
     update:function (dt) {

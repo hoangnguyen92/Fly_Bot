@@ -34,8 +34,8 @@ var BackgroundLayer = cc.Layer.extend({
             x: this.mapWidth
         });
 
-        this.addChild(this.spriteBG01,0);
-        this.addChild(this.spriteBG02,0);
+        this.addChild(this.spriteBG01);
+        this.addChild(this.spriteBG02);
 
 //        this.map00 = new cc.TMXTiledMap(res.map00_tmx);
 //        this.addChild(this.map00);

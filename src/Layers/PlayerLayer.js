@@ -55,17 +55,20 @@ var PlayerLayer = cc.Layer.extend({
         this.space.addShape(this.shape);
 //        //8. set body to the physic sprite
         this.sprite.setBody(this.body);
-
+        
+        
 
         this.sprite.runAction(this.runningAction);
         this.spriteSheet.addChild(this.sprite,1);
-
+        
+        
 
         this._debugNode = new cc.PhysicsDebugNode(this.space);
-        this._debugNode.setVisible(false);
+        this._debugNode.setVisible(true);
         this.addChild(this._debugNode,10);
     },
     getEyeX: function () {
+    	console.log("x: "+ this.sprite.getPositionX()+" y: "+ this.sprite.getPositionY())
         return this.sprite.getPositionX() - g_runnerStartX;
     }
 });
