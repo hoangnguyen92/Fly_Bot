@@ -22,12 +22,12 @@ var BackgroundLayer = cc.Layer.extend({
         this.spriteBG01.attr({
             anchorX:0,
             anchorY:0,
-            x: 0
+            x: 0,
+            y: 0
         });
         this.spriteBG02 = new cc.Sprite(res.bg_jpg);
 
         this.mapWidth = this.spriteBG01.getContentSize().width;
-        console.log("mapWidth "+this.mapWidth);
         this.spriteBG02.attr({
             anchorX:0,
             anchorY:0,
@@ -36,13 +36,6 @@ var BackgroundLayer = cc.Layer.extend({
 
         this.addChild(this.spriteBG01);
         this.addChild(this.spriteBG02);
-
-//        this.map00 = new cc.TMXTiledMap(res.map00_tmx);
-//        this.addChild(this.map00);
-//        this.mapWidth = this.map00.getContentSize().width;
-//        this.map01 = new cc.TMXTiledMap(res.map01_tmx);
-//        this.map01.setPosition(cc.p(this.mapWidth, 0));
-//        this.addChild(this.map01);
 
         this.scheduleUpdate();
     },
@@ -55,10 +48,8 @@ var BackgroundLayer = cc.Layer.extend({
         }
         if(newMapIndex % 2 == 0){
             this.spriteBG02.setPositionX(this.mapWidth * (newMapIndex + 1));
-//            this.map01.setPositionX(this.mapWidth * (newMapIndex + 1));
         }else{
             this.spriteBG01.setPositionX(this.mapWidth * (newMapIndex + 1));
-//            this.map00.setPositionX(this.mapWidth * (newMapIndex + 1));
         }
 
 

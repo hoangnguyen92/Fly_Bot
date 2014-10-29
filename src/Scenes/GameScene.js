@@ -5,35 +5,28 @@
 var GameScene = cc.Scene.extend({
     space:null,
     gameLayer: null,
-    ctor:function (space) {
+    world: null,
+    ctor:function () {
         this._super();
-        this.space = space;
         this.init();
     },
     // init space of chipmunk
     initPhysics:function() {
-    	var winSize = cc.director.getWinSize();
-        //1. new space object
-        this.space = new cp.Space();
-        //2. setup the  Gravity
-        this.space.gravity = cp.v(0, -350);
-
-        // 3. set up Walls
-        var wallBottom = new cp.SegmentShape(this.space.staticBody,
-            cp.v(0, g_groundH),// start point
-            cp.v(4294967295, g_groundH),// MAX INT:4294967295
-            0);// thickness of wall
-        
-//        var wallUp = new cp.SegmentShape(this.space.staticBody,cp.v(0, winSize-50),cp.v(4294967295,winSize-50 ),1);
-
-//        this.space.addStaticShape(wallUp);
-        this.space.addStaticShape(wallBottom);
+    	var b2Vec2 = Box2D.Common.Math.b2Vec2,
+    		b2BodyDef = Box2D.Dynamics.b2BodyDef,
+    		b2Body = Box2D.Dynamics.b2Body,
+    		b2FixtureDef = Box2D.Dynamics.b2FixtureDef,
+    		b2Wold = Box2D.Dynamics.b2World,
+    		b2PolygonShap = Box2D.Collision.Shapes.b2PolygonShape;
+    	
+    	this.world= new b2World(new b2Vec2(0,-10), true);
+    	this.world.SetContinuousPhysics(true);
+    	
+    	
     },
     update:function (dt) {
-        // chipmunk step
-        this.space.step(dt);
 
-        var playerLayer = this.gameLayer.getChildByTag(TagOfLayer.Player);
+    	var playerLayer = this.gameLayer.getChildByTag(TagOfLayer.Player);
         var eyeX = playerLayer.getEyeX();
 
         this.gameLayer.setPosition(cc.p(-eyeX,0));
@@ -44,8 +37,8 @@ var GameScene = cc.Scene.extend({
         this.gameLayer = new cc.Layer();
 
         //add three layer in the right order
-        this.gameLayer.addChild(new BackgroundLayer(this.space), 0, TagOfLayer.background);
-        this.gameLayer.addChild(new PlayerLayer(this.space), 0, TagOfLayer.Player);
+        this.gameLayer.addChild(new BackgroundLayer(), 0, TagOfLayer.background);
+        this.gameLayer.addChild(new PlayerLayer(), 0, TagOfLayer.Player);
         this.addChild(this.gameLayer);
         this.addChild(new StatusLayer(), 0, TagOfLayer.Status);
 

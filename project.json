@@ -1,23 +1,25 @@
 {
-    "project_type": "javascript",
-
-    "debugMode" : 1,
-    "showFPS" : true,
-    "frameRate" : 60,
-    "id" : "gameCanvas",
-    "renderMode" : 0,
+    "project_type":"javascript",
+    "debugMode":0,
+    "showFPS":false,
+    "frameRate":60,
+    "id":"gameCanvas",
+    "renderMode":0,
+    "box2d":true,
     "engineDir":"frameworks/cocos2d-html5",
-
-    "modules" : ["cocos2d","chipmunk"],
-
-    "jsList" : [
+    "modules":[
+        "cocos2d",
+        "chipmunk",
+        "box2d"
+    ],
+    "jsList":[
         "src/resource.js",
         "src/MainMenu.js",
         "src/Scenes/GameScene.js",
         "src/Layers/BackgroundLayer.js",
         "src/Layers/PlayerLayer.js",
         "src/Layers/StatusLayer.js",
-        "src/globals.js"
-
+        "src/globals.js",
+        "src/Box2dTest.js"
     ]
 }
