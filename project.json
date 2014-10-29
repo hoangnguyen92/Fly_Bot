@@ -5,12 +5,10 @@
     "frameRate":60,
     "id":"gameCanvas",
     "renderMode":0,
-    "box2d":true,
     "engineDir":"frameworks/cocos2d-html5",
     "modules":[
         "cocos2d",
-        "chipmunk",
-        "box2d"
+        "chipmunk"
     ],
     "jsList":[
         "src/resource.js",
@@ -19,7 +17,6 @@
         "src/Layers/BackgroundLayer.js",
         "src/Layers/PlayerLayer.js",
         "src/Layers/StatusLayer.js",
-        "src/globals.js",
-        "src/Box2dTest.js"
+        "src/globals.js"
     ]
 }
