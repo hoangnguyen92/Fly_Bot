@@ -58,13 +58,15 @@ var PlayerLayer = cc.Layer.extend({
         
         this.sprite.runAction(this.runningAction);
         
-        this.sprite.setPosition(g_runnerStartX, winSize.height/2);
+        //this.sprite.setPosition(g_runnerStartX, winSize.height/2);
         this.spriteSheet.addChild(this.sprite,1);
         
         
         this._debugNode = new cc.PhysicsDebugNode(this.space);
         this._debugNode.setVisible(true);
         this.addChild(this._debugNode, 10);
+        
+        this.sprite.pause();
 
     },
     getEyeX: function () {
